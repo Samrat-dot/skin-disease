@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Prediction Result</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 20px 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      li {
+        background-color: #4a90d9;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 0.9em;
+      }
+
+      .result-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 25px;
+        border: 2px dashed #ccc;
+        border-radius: 10px;
+        margin-top: 20px;
+      }
+
+      .uploaded-image {
+        max-width: 300px;
+        max-height: 300px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin-bottom: 15px;
+        border: 3px solid #4a90d9;
+      }
+
+      .prediction-result {
+        font-size: 1.5em;
+        color: #333;
+      }
+
+      .prediction-link {
+        font-size: 1em;
+        color: #4a90d9;
+        text-decoration: none;
+        margin-top: 10px;
+      }
+
+      .prediction-link:hover {
+        text-decoration: underline;
+      }
+
+      a.upload-link {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: #4a90d9;
+        font-size: 1rem;
+        color: white;
+        border-radius: 25px;
+        text-decoration: none;
+        margin-top: 20px;
+        transition: background-color 0.3s ease;
+      }
+
+      a.upload-link:hover {
+        background-color: #357abd;
+      }
+
+      span {
+        font-weight: bolder;
+        color: #e74c3c;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <h1>Available Diseases to Predict</h1>
+        <ul>
+            <li>Acne and Rosacea</li>
+            <li>Actinic Keratosis Basal Cell Carcinoma and other Malignant Lesions</li>
+            <li>Atopic Dermatitis</li>
+            <li>Bullous Disease</li>
+            <li>Cellulitis Impetigo and other Bacterial Infections</li>
+            <li>Eczema</li>
+            <li>Exanthems and Drug Eruptions</li>
+            <li>Hair Loss Alopecia and other Hair Diseases</li>
+            <li>Herpes HPV and other STDs</li>
+            <li>Light Diseases and Disorders of Pigmentation</li>
+            <li>Lupus and other Connective Tissue diseases</li>
+            <li>Melanoma Skin Cancer Nevi and Moles</li>
+            <li>Nail Fungus and other Nail Disease</li>
+            <li>Poison Ivy and other Contact Dermatitis</li>
+            <li>Psoriasis Lichen Planus and related diseases</li>
+            <li>Scabies Lyme Disease and other Infestations and Bites</li>
+            <li>Seborrheic Keratoses and other Benign Tumors</li>
+            <li>Systemic Disease</li>
+            <li>Tinea Ringworm Candidiasis and other Fungal Infections</li>
+            <li>Urticaria Hives</li>
+            <li>Vascular Tumors</li>
+            <li>Vasculitis</li>
+            <li>Warts Molluscum and other Viral Infections</li>
+        </ul>      
+
+        <div class="result-container">
+            <h1>Prediction Result</h1>
+            <img class="uploaded-image" src="/uploads/{{ filename }}" alt="Uploaded Image">
+            <p class="prediction-result">
+                Predicted Skin Disease: <span>{{ prediction }}</span>
+            </p>
+            <a class="prediction-link" href="https://en.wikipedia.org/wiki/{{ prediction }}" target="_blank">
+                Learn more about {{ prediction }} on Wikipedia
+            </a>
+        </div>
+
+        <a class="upload-link" href="/">Upload another image</a>
+    </div>
+  </body>
+</html>
